@@ -10,10 +10,10 @@
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hello World!"
+        android:hint="Package Name"
         android:inputType="textMultiLine"
         android:singleLine="false"
-        android:text="Hello World!" />
+        android:text="com.xx.xxx" />
 
     <Button
         android:id="@+id/get"
@@ -34,6 +34,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enable"
+        tools:ignore="HardcodedText"  />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <Button
+        android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Url"
         tools:ignore="HardcodedText"  />
 
 </LinearLayout>
