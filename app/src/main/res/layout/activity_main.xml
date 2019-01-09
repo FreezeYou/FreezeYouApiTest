@@ -36,11 +36,6 @@
         android:text="Enable"
         tools:ignore="HardcodedText"  />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
-
     <Button
         android:id="@+id/url"
         android:layout_width="match_parent"

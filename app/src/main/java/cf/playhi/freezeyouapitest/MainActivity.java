@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(intent, 0);
                 } catch (ActivityNotFoundException e) {
                     e.printStackTrace();
-                    Toast.makeText(MainActivity.this, "老版本FreezeYou或未安装FreezeYou", Toast.LENGTH_LONG).show();//老版本FreezeYou或未安装FreezeYou
+                    Toast.makeText(MainActivity.this, "老版本 FreezeYou 或未安装 FreezeYou ", Toast.LENGTH_LONG).show();//老版本FreezeYou或未安装FreezeYou
                 } catch (SecurityException e) {
                     e.printStackTrace();
                     Toast.makeText(MainActivity.this, "是否在 Manifest 中声明权限了？", Toast.LENGTH_LONG).show();//是否在 Manifest 中声明权限了
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(intent, 1);
                     } catch (ActivityNotFoundException e) {
                         e.printStackTrace();
-                        Toast.makeText(MainActivity.this, "老版本FreezeYou或未安装FreezeYou", Toast.LENGTH_LONG).show();//老版本FreezeYou或未安装FreezeYou
+                        Toast.makeText(MainActivity.this, "老版本 FreezeYou 或未安装 FreezeYou ", Toast.LENGTH_LONG).show();//老版本FreezeYou或未安装FreezeYou
                     } catch (SecurityException e) {
                         e.printStackTrace();
                         Toast.makeText(MainActivity.this, "是否在 Manifest 中声明权限了？", Toast.LENGTH_LONG).show();//是否在 Manifest 中声明权限了
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(intent, 2);
                     } catch (ActivityNotFoundException e) {
                         e.printStackTrace();
-                        Toast.makeText(MainActivity.this, "老版本FreezeYou或未安装FreezeYou", Toast.LENGTH_LONG).show();//老版本FreezeYou或未安装FreezeYou
+                        Toast.makeText(MainActivity.this, "老版本 FreezeYou 或未安装 FreezeYou ", Toast.LENGTH_LONG).show();//老版本FreezeYou或未安装FreezeYou
                     } catch (SecurityException e) {
                         e.printStackTrace();
                         Toast.makeText(MainActivity.this, "是否在 Manifest 中声明权限了？", Toast.LENGTH_LONG).show();//是否在 Manifest 中声明权限了
@@ -102,12 +102,15 @@ public class MainActivity extends AppCompatActivity {
         urlButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri webPage = Uri.parse("freezeyou://fuf/?pkgName=com.android.gallery3d");//调冻结解冻启动弹窗
-                Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(MainActivity.this, "无可用程序，是否已安装 FreezeYou 7.2 及以上版本呢？", Toast.LENGTH_LONG).show();//无可用程序，是否已安装 FreezeYou 7.2 及以上版本呢？
+                String[] strings = editText.getText().toString().split("\n");
+                for (String pkgName : strings) {
+                    Uri webPage = Uri.parse("freezeyou://fuf/?pkgName=" + pkgName);//调冻结解冻启动弹窗
+                    Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(MainActivity.this, "无可用程序，是否已安装 FreezeYou 7.2 及以上版本呢？", Toast.LENGTH_LONG).show();//无可用程序，是否已安装 FreezeYou 7.2 及以上版本呢？
+                    }
                 }
             }
         });
