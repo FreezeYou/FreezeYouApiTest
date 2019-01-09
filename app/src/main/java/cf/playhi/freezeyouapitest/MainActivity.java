@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String[] strings = editText.getText().toString().split("\n");
+                //批量请求实际生效（留存）为最后一次请求的内容，先前的请求会被直接忽略，防止恶意（无限、超大量）请求
                 for (String pkgName : strings) {
                     Uri webPage = Uri.parse("freezeyou://fuf/?pkgName=" + pkgName);//调冻结解冻启动弹窗
                     Intent intent = new Intent(Intent.ACTION_VIEW, webPage);
