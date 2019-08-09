@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cf.playhi.freezeyouapitest">
 
-    <uses-permission android:name="cf.playhi.freezeyou.permission.GET_DISABLED_APPLICATIONS"/>
-    <uses-permission android:name="cf.playhi.freezeyou.permission.ENABLE_APPLICATIONS"/>
-    <uses-permission android:name="cf.playhi.freezeyou.permission.DISABLE_APPLICATIONS"/>
+    <uses-permission android:name="cf.playhi.freezeyou.permission.GET_DISABLED_APPLICATIONS" />
+    <uses-permission android:name="cf.playhi.freezeyou.permission.ENABLE_APPLICATIONS" />
+    <uses-permission android:name="cf.playhi.freezeyou.permission.DISABLE_APPLICATIONS" />
+    <uses-permission android:name="cf.playhi.freezeyou.permission.QUERY_STATUS" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +16,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

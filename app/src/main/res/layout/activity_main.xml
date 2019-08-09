@@ -43,4 +43,32 @@
         android:text="Url"
         tools:ignore="HardcodedText"  />
 
+    <Button
+        android:id="@+id/getCurrentMode_useProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Current Mode(Use Provider)"
+        tools:ignore="HardcodedText"  />
+
+    <Button
+        android:id="@+id/getDisableStatus_useProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Disable Status(Use Provider)"
+        tools:ignore="HardcodedText"  />
+
+    <Button
+        android:id="@+id/disable_useProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disable(Use Provider)"
+        tools:ignore="HardcodedText"  />
+
+    <Button
+        android:id="@+id/enable_useProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enable(Use Provider)"
+        tools:ignore="HardcodedText"  />
+
 </LinearLayout>

@@ -6,9 +6,11 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         Button disable = findViewById(R.id.disable);
         Button enable = findViewById(R.id.enable);
         Button urlButton = findViewById(R.id.url);
+        Button getCurrentModeUseProvider = findViewById(R.id.getCurrentMode_useProvider);
+        Button disableUseProvider = findViewById(R.id.disable_useProvider);
+        Button enableUseProvider = findViewById(R.id.enable_useProvider);
+        Button getDisableStatusUseProvider = findViewById(R.id.getDisableStatus_useProvider);
         final EditText editText = findViewById(R.id.editText);
 
         get.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +122,87 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //如需通过网页、WebView调用，可使用 <a href="freezeyou://fuf/?pkgName=com.android.gallery3d">提示信息</a>
+
+        getCurrentModeUseProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle resultBundle = getContentResolver().call(
+                        Uri.parse("content://cf.playhi.freezeyou.export.QUERY"), "QUERY_MODE",
+                        null, new Bundle()
+                );
+                if (resultBundle != null) {
+                    // 返回值
+                    editText.setText(resultBundle.getString("currentMode", "Failed"));
+                }
+            }
+        });
+
+        disableUseProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                        "cf.playhi.freezeyou.permission.DISABLE_APPLICATIONS")
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{"cf.playhi.freezeyou.permission.DISABLE_APPLICATIONS"},
+                            10);
+                } else {
+                    String pkgName = editText.getText().toString();
+                    Bundle willBeSend = new Bundle();
+                    willBeSend.putString("packageName", pkgName);
+                    Bundle resultBundle = getContentResolver().call(
+                            Uri.parse("content://cf.playhi.freezeyou.export.FREEZE"), "MODE_AUTO",
+                            null, willBeSend
+                    );
+                    if (resultBundle != null) {
+                        // 返回值
+                        editText.setText(resultBundle.getInt("result", 123456) + "");
+                    }
+                }
+            }
+        });
+
+        enableUseProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                        "cf.playhi.freezeyou.permission.ENABLE_APPLICATIONS")
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{"cf.playhi.freezeyou.permission.ENABLE_APPLICATIONS"},
+                            11);
+                } else {
+                    String pkgName = editText.getText().toString();
+                    Bundle willBeSend = new Bundle();
+                    willBeSend.putString("packageName", pkgName);
+                    Bundle resultBundle = getContentResolver().call(
+                            Uri.parse("content://cf.playhi.freezeyou.export.UNFREEZE"), "MODE_AUTO",
+                            null, willBeSend
+                    );
+                    if (resultBundle != null) {
+                        // 返回值
+                        editText.setText(resultBundle.getInt("result", 123456) + "");
+                    }
+                }
+            }
+        });
+
+        getDisableStatusUseProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pkgName = editText.getText().toString();
+                Bundle willBeSend = new Bundle();
+                willBeSend.putString("packageName", pkgName);
+                Bundle resultBundle = getContentResolver().call(
+                        Uri.parse("content://cf.playhi.freezeyou.export.QUERY"), "QUERY_FREEZE_STATUS",
+                        null, willBeSend
+                );
+                if (resultBundle != null) {
+                    // 返回值
+                    editText.setText(resultBundle.getInt("status", 123456) + "");
+                }
+            }
+        });
 
     }
 
