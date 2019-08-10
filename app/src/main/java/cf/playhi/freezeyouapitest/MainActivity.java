@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 );
                 if (resultBundle != null) {
                     // 返回值
-                    editText.setText(resultBundle.getString("currentMode", "Failed"));
+                    Toast.makeText(MainActivity.this, resultBundle.getString("currentMode", "Failed"), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                     );
                     if (resultBundle != null) {
                         // 返回值
-                        editText.setText(resultBundle.getInt("result", 123456) + "");
+                        Toast.makeText(MainActivity.this, Integer.toString(resultBundle.getInt("result", 123456)), Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     );
                     if (resultBundle != null) {
                         // 返回值
-                        editText.setText(resultBundle.getInt("result", 123456) + "");
+                        Toast.makeText(MainActivity.this, Integer.toString(resultBundle.getInt("result", 123456)), Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 );
                 if (resultBundle != null) {
                     // 返回值
-                    editText.setText(resultBundle.getInt("status", 123456) + "");
+                    Toast.makeText(MainActivity.this, Integer.toString(resultBundle.getInt("status", 123456)), Toast.LENGTH_LONG).show();
                 }
             }
         });
