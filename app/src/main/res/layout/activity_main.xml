@@ -51,6 +51,13 @@
         tools:ignore="HardcodedText"  />
 
     <Button
+        android:id="@+id/getIfCanInstallApplicationsStatus_useProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get If Can Install Applications Status(Use Provider)"
+        tools:ignore="HardcodedText"  />
+
+    <Button
         android:id="@+id/getDisableStatus_useProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
