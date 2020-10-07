@@ -71,4 +71,11 @@
         android:text="Enable(Use Provider)"
         tools:ignore="HardcodedText"  />
 
+    <Button
+        android:id="@+id/getCurrentMode_v2_useProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Current Mode V2(Use Provider)"
+        tools:ignore="HardcodedText"  />
+
 </LinearLayout>
