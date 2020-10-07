@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         final Button enable = findViewById(R.id.enable);
         final Button urlButton = findViewById(R.id.url);
         final Button getCurrentModeUseProvider = findViewById(R.id.getCurrentMode_useProvider);
+        final Button getIfCanInstallApplicationsStatusUseProvider = findViewById(R.id.getIfCanInstallApplicationsStatus_useProvider);
         final Button disableUseProvider = findViewById(R.id.disable_useProvider);
         final Button enableUseProvider = findViewById(R.id.enable_useProvider);
         final Button getDisableStatusUseProvider = findViewById(R.id.getDisableStatus_useProvider);
@@ -120,6 +121,27 @@ public class MainActivity extends AppCompatActivity {
             if (resultBundle != null) {
                 // 返回值
                 Toast.makeText(MainActivity.this, resultBundle.getString("currentMode", "Failed"), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        getIfCanInstallApplicationsStatusUseProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle resultBundle = getContentResolver().call(
+                        Uri.parse("content://cf.playhi.freezeyou.export.QUERY"), "QUERY_IF_CAN_INSTALL_APPLICATIONS_STATUS",
+                        null, new Bundle()
+                );
+                if (resultBundle != null) {
+                    // 返回值
+                    boolean[] b = resultBundle.getBooleanArray("status");
+                    if (b != null) {
+                        Toast.makeText(
+                                MainActivity.this,
+                                "boolean[]{" + b[0] + "," + b[1] + "," + b[2] + "," + b[3] + "}",
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                }
             }
         });
 
