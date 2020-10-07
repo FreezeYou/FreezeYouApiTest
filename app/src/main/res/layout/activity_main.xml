@@ -13,7 +13,8 @@
         android:hint="Package Name"
         android:inputType="textMultiLine"
         android:singleLine="false"
-        android:text="com.xx.xxx" />
+        android:text="com.xx.xxx"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/get"
@@ -27,62 +28,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Disable"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/enable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enable"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Url"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/getCurrentMode_useProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get Current Mode(Use Provider)"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/getIfCanInstallApplicationsStatus_useProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get If Can Install Applications Status(Use Provider)"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/getDisableStatus_useProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get Disable Status(Use Provider)"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/disable_useProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Disable(Use Provider)"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/enable_useProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enable(Use Provider)"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/getCurrentMode_v2_useProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get Current Mode V2(Use Provider)"
-        tools:ignore="HardcodedText"  />
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>
